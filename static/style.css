@@ -1,0 +1,27 @@
+/* Tambahkan styling untuk class input dan btn */
+.input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cbd5e1; /* slate-300 */
+  border-radius: 0.375rem; /* rounded-md */
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #60a5fa; /* blue-300 */
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5); /* Tailwind-style ring */
+}
+
+.btn {
+  background-color: #2563eb; /* blue-600 */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem; /* rounded-md */
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #1d4ed8; /* blue-700 */
+}
