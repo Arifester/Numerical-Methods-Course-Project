@@ -72,6 +72,7 @@ def index():
         'index.html',
         results=results,
         error=error,
+        request_form=request.form,
         iterations=json.dumps(iterations),
         x_values=json.dumps(x_values),
         errors=json.dumps(errors)

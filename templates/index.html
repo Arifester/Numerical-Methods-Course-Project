@@ -21,25 +21,25 @@
     <form method="POST" class="space-y-4">
       <div>
         <label class="block font-semibold">Fungsi f(x)</label>
-        <input type="text" name="function" required class="input border rounded-md p-2 w-full" placeholder="Contoh: x**2 - 2">
+        <input value="{{ request_form.get('function', '') }}" type="text" name="function" required class="input border rounded-md p-2 w-full" placeholder="Contoh: x**2 - 2">
       </div>
       <div class="grid grid-cols-2 gap-4">
         <div>
           <label class="block font-semibold">Tebakan Awal x0</label>
-          <input type="number" step="any" name="x0" required class="input border rounded-md p-2 w-full">
+          <input value="{{ request_form.get('x0', '') }}" type="number" step="any" name="x0" required class="input border rounded-md p-2 w-full">
         </div>
         <div>
           <label class="block font-semibold">Tebakan Awal x1</label>
-          <input type="number" step="any" name="x1" required class="input border rounded-md p-2 w-full">
+          <input value="{{ request_form.get('x1', '') }}" type="number" step="any" name="x1" required class="input border rounded-md p-2 w-full">
         </div>
       </div>
       <div>
         <label class="block font-semibold">Angka Benar</label>
-        <input type="number" name="tol" required class="input border rounded-md p-2 w-full" min="1">
+        <input value="{{ request_form.get('tol', '')}}" type="number" name="tol" required class="input border rounded-md p-2 w-full" min="1">
       </div>
       <div>
         <label class="block font-semibold">Maksimal Iterasi</label>
-        <input type="number" name="max_iter" required class="input border rounded-md p-2 w-full" min="1">
+        <input value="{{ request_form.get('max_iter', '')}}"  type="number" name="max_iter" required class="input border rounded-md p-2 w-full" min="1">
       </div>
       <button type="submit" class="btn bg-blue-500 text-white rounded-md p-2 w-full hover:bg-blue-600 transition">Hitung</button>
     </form>
