@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,33 +8,36 @@
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <!-- File CSS Lokal -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body class="bg-gray-100 text-gray-800">
   <div class="max-w-3xl mx-auto p-6 bg-white shadow-lg mt-10 rounded-lg">
-    <h1 class="text-2xl font-bold mb-4">Metode Secant</h1>
+    <h1 class="text-2xl font-bold mb-4 text-center">Metode Secant</h1>
 
     <form method="POST" class="space-y-4">
       <div>
         <label class="block font-semibold">Fungsi f(x)</label>
-        <input type="text" name="function" required class="input" placeholder="Contoh: x**2 - 2">
+        <input type="text" name="function" required class="input border rounded-md p-2 w-full" placeholder="Contoh: x**2 - 2">
       </div>
       <div class="grid grid-cols-2 gap-4">
         <div>
           <label class="block font-semibold">Tebakan Awal x0</label>
-          <input type="number" step="any" name="x0" required class="input">
+          <input type="number" step="any" name="x0" required class="input border rounded-md p-2 w-full">
         </div>
         <div>
           <label class="block font-semibold">Tebakan Awal x1</label>
-          <input type="number" step="any" name="x1" required class="input">
+          <input type="number" step="any" name="x1" required class="input border rounded-md p-2 w-full">
         </div>
       </div>
       <div>
         <label class="block font-semibold">Maksimal Iterasi</label>
-        <input type="number" name="max_iter" required class="input" min="1">
+        <input type="number" name="max_iter" required class="input border rounded-md p-2 w-full" min="1">
       </div>
-      <button type="submit" class="btn">Hitung</button>
+      <button type="submit" class="btn bg-blue-500 text-white rounded-md p-2 w-full hover:bg-blue-600 transition">Hitung</button>
     </form>
 
     {% if error %}
@@ -44,7 +47,7 @@
     {% if results %}
       <div class="mt-6">
         <h2 class="text-xl font-bold mb-2">Hasil Iterasi:</h2>
-        <table class="table-auto w-full text-left border">
+        <table class="table-auto w-full text-left border border-gray-300">
           <thead>
             <tr>
               <th class="px-4 py-2 border">Iterasi</th>
@@ -65,10 +68,59 @@
           </tbody>
         </table>
       </div>
+
+      <!-- Area untuk Grafik -->
+      <div class="mt-6">
+        <h2 class="text-xl font-bold mb-2">Grafik Hasil Iterasi:</h2>
+        <canvas id="resultChart" width="400" height="200"></canvas>
+      </div>
     {% endif %}
   </div>
 
   <!-- File JS Lokal -->
   <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script>
+    // Script untuk menggambar grafik jika ada hasil
+    const results = {{ results|tojson }};
+    if (results.length > 0) {
+      const ctx = document.getElementById('resultChart').getContext('2d');
+      const labels = results.map(r => `Iterasi ${r.iter}`);
+      const dataX = results.map(r => r.x);
+      const dataF = results.map(r => r.f_x);
+
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Nilai x',
+              data: dataX,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              fill: true,
+              tension: 0.1
+            },
+            {
+              label: 'f(x)',
+              data: dataF,
+              borderColor: 'rgba(255, 99, 132, 1)',
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              fill: true,
+              tension: 0.1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: false
+            }
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
