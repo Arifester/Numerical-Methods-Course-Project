@@ -4,7 +4,7 @@ import json
 
 app = Flask(__name__)
 
-def secant_method(expr_str, x0, x1, max_iter, tol=1e-6):
+def secant_method(expr_str, x0, x1, max_iter, tol):
     x = sp.symbols('x')
     try:
         f_expr = sp.sympify(expr_str)
@@ -32,7 +32,7 @@ def secant_method(expr_str, x0, x1, max_iter, tol=1e-6):
                 'error': error
             })
 
-            if error < tol:
+            if error < (tol / (10**tol)):
                 break
 
             x0, x1 = x1, x2
@@ -55,8 +55,9 @@ def index():
             x0 = float(request.form.get('x0', '0'))
             x1 = float(request.form.get('x1', '0'))
             max_iter = int(request.form.get('max_iter', '10'))
+            tol = int(request.form.get('tol', '9'))
 
-            results = secant_method(func_str, x0, x1, max_iter)
+            results = secant_method(func_str, x0, x1, max_iter, tol)
 
             if isinstance(results, dict) and 'error' in results:
                 error = results['error']

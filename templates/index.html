@@ -34,6 +34,10 @@
         </div>
       </div>
       <div>
+        <label class="block font-semibold">Angka Benar</label>
+        <input type="number" name="tol" required class="input border rounded-md p-2 w-full" min="1">
+      </div>
+      <div>
         <label class="block font-semibold">Maksimal Iterasi</label>
         <input type="number" name="max_iter" required class="input border rounded-md p-2 w-full" min="1">
       </div>
@@ -60,9 +64,9 @@
             {% for r in results %}
             <tr class="border-t">
               <td class="px-4 py-2">{{ r.iter }}</td>
-              <td class="px-4 py-2">{{ '%.6f'|format(r.x) }}</td>
-              <td class="px-4 py-2">{{ '%.6f'|format(r.f_x) }}</td>
-              <td class="px-4 py-2">{{ '%.6f'|format(r.error) }}</td>
+              <td class="px-4 py-2">{{ '%.9f'|format(r.x) }}</td>
+              <td class="px-4 py-2">{{ '%.9f'|format(r.f_x) }}</td>
+              <td class="px-4 py-2">{{ '%.9f'|format(r.error) }}</td>
             </tr>
             {% endfor %}
           </tbody>
