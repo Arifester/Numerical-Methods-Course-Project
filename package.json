@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.7",
+    "preline": "^3.0.1",
+    "tailwindcss": "^4.1.7"
+  },
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "@tailwindcss/oxide"
+  ],
+  "scripts": {
+    "dev": "tailwindcss -c tailwind.config.js -i ./static/input.css -o ./static/output.css --watch",
+    "build": "tailwindcss -c tailwind.config.js -i ./static/input.css -o ./static/output.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10"
+  }
+}
