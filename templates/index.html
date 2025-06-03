@@ -6,28 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Metode Secant</title>
 
-  <!-- Tailwind CSS via CDN -->
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
 
-
-
-  <!-- File CSS Lokal -->
   <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
 </head>
 
 <body class="bg-gray-100 text-gray-800">
 
-
-
-  <!-- Hero -->
   <div class="relative bg-linear-to-bl from-blue-200 via-transparent">
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-      <!-- Grid -->
       <div class="grid items-center md:grid-cols-2 gap-8 lg:gap-12">
         <div>
           <p
@@ -35,7 +26,6 @@
             Proyek Metode Numerik 2025
           </p>
 
-          <!-- Title -->
           <div class="mt-4 md:mb-12 max-w-2xl">
             <h1 class="mb-4 font-semibold text-gray-800 text-4xl lg:text-5xl">
               Metode Secant
@@ -47,9 +37,6 @@
               Metode ini menggunakan dua titik awal dan iterasi untuk mendekati akar fungsi.
             </p>
           </div>
-          <!-- End Title -->
-
-          <!-- Blockquote -->
           <blockquote class="hidden md:block relative max-w-sm">
             <svg class="absolute top-0 start-0 transform -translate-x-6 -translate-y-8 size-16 text-gray-200" width="16"
               height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -127,19 +114,13 @@
                   </div>
                 </div>
 
-
               </div>
             </div>
           </blockquote>
-          <!-- End Blockquote -->
-        </div>
-        <!-- End Col -->
-
+          </div>
         <div>
-          <!-- Form -->
           <form method="post" action="">
             <div class="lg:max-w-lg lg:mx-auto lg:me-0 ms-auto">
-              <!-- Card -->
               <div class="p-4 sm:p-7 flex flex-col bg-white rounded-2xl shadow-lg">
                 <div class="text-center">
                   <h1 class="block text-2xl font-bold text-gray-800">Masukkan Parameter</h1>
@@ -154,159 +135,122 @@
 
                 <div class="mt-5">
 
-                  <!-- Grid -->
                   <div class="grid grid-cols-2 gap-4">
 
-                    <!-- Input Group -->
                     <div class="relative col-span-full">
-                      <!-- Floating Input -->
                       <div class="relative">
                         <input value="{{ request_form.get('function', '') }}" type="text" name="function" required
                           class="peer p-3 sm:p-4 block w-full border-gray-200 rounded-lg sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
-                      focus:pt-6
-                      focus:pb-2
-                      not-placeholder-shown:pt-6
-                      not-placeholder-shown:pb-2
-                      autofill:pt-6
-                      autofill:pb-2" placeholder="********">
+                            focus:pt-6
+                            focus:pb-2
+                            not-placeholder-shown:pt-6
+                            not-placeholder-shown:pb-2
+                            autofill:pt-6
+                            autofill:pb-2" placeholder="********">
                         <label for="hs-hero-signup-form-floating-input-new-password" class="absolute top-0 start-0 p-3 sm:p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] peer-disabled:opacity-50 peer-disabled:pointer-events-none
-                        peer-focus:scale-90
-                        peer-focus:translate-x-0.5
-                        peer-focus:-translate-y-1.5
-                        peer-focus:text-gray-500
-                        peer-not-placeholder-shown:scale-90
-                        peer-not-placeholder-shown:translate-x-0.5
-                        peer-not-placeholder-shown:-translate-y-1.5
-                        peer-not-placeholder-shown:text-gray-500">Fungsi f(x) (misal: x**2-1)</label>
+                            peer-focus:scale-90
+                            peer-focus:translate-x-0.5
+                            peer-focus:-translate-y-1.5
+                            peer-focus:text-gray-500
+                            peer-not-placeholder-shown:scale-90
+                            peer-not-placeholder-shown:translate-x-0.5
+                            peer-not-placeholder-shown:-translate-y-1.5
+                            peer-not-placeholder-shown:text-gray-500">Fungsi f(x) (misal: x**2-1)</label>
                       </div>
-                      <!-- End Floating Input -->
-                    </div>
-                    <!-- End Input Group -->
-
-                    <!-- Input Group -->
+                      </div>
                     <div>
-                      <!-- Floating Input -->
                       <div class="relative">
                         <input value="{{ request_form.get('x0', '') }}" type="number" step="any" name="x0" id="x0"
                           required class="peer p-3 sm:p-4 block w-full border-gray-200 rounded-lg sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
-                      focus:pt-6
-                      focus:pb-2
-                      not-placeholder-shown:pt-6
-                      not-placeholder-shown:pb-2
-                      autofill:pt-6
-                      autofill:pb-2" placeholder="you@email.com">
+                            focus:pt-6
+                            focus:pb-2
+                            not-placeholder-shown:pt-6
+                            not-placeholder-shown:pb-2
+                            autofill:pt-6
+                            autofill:pb-2" placeholder="you@email.com">
                         <label for="hs-hero-signup-form-floating-input-email" class="absolute top-0 start-0 p-3 sm:p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] peer-disabled:opacity-50 peer-disabled:pointer-events-none
-                        peer-focus:scale-90
-                        peer-focus:translate-x-0.5
-                        peer-focus:-translate-y-1.5
-                        peer-focus:text-gray-500
-                        peer-not-placeholder-shown:scale-90
-                        peer-not-placeholder-shown:translate-x-0.5
-                        peer-not-placeholder-shown:-translate-y-1.5
-                        peer-not-placeholder-shown:text-gray-500">Tebakan Awal (x0)</label>
+                            peer-focus:scale-90
+                            peer-focus:translate-x-0.5
+                            peer-focus:-translate-y-1.5
+                            peer-focus:text-gray-500
+                            peer-not-placeholder-shown:scale-90
+                            peer-not-placeholder-shown:translate-x-0.5
+                            peer-not-placeholder-shown:-translate-y-1.5
+                            peer-not-placeholder-shown:text-gray-500">Tebakan Awal (x0)</label>
                       </div>
-                      <!-- End Floating Input -->
-                    </div>
-                    <!-- End Input Group -->
-
-                    <!-- Input Group -->
+                      </div>
                     <div>
-                      <!-- Floating Input -->
                       <div class="relative">
                         <input value="{{ request_form.get('x1', '') }}" type="number" step="any" name="x1" id="x1"
-                          required class="peer p-3 sm:p-4 block w-full   border-blue-200 rounded-lg sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
-                      focus:pt-6
-                      focus:pb-2
-                      not-placeholder-shown:pt-6
-                      not-placeholder-shown:pb-2
-                      autofill:pt-6
-                      autofill:pb-2" placeholder="Preline">
+                          required class="peer p-3 sm:p-4 block w-full border-gray-200 rounded-lg sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6
+                            focus:pb-2
+                            not-placeholder-shown:pt-6
+                            not-placeholder-shown:pb-2
+                            autofill:pt-6
+                            autofill:pb-2" placeholder="Preline">
                         <label for="hs-hero-signup-form-floating-input-company-name" class="absolute top-0 start-0 p-3 sm:p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] peer-disabled:opacity-50 peer-disabled:pointer-events-none
-                        peer-focus:scale-90
-                        peer-focus:translate-x-0.5
-                        peer-focus:-translate-y-1.5
-                        peer-focus:text-gray-500
-                        peer-not-placeholder-shown:scale-90
-                        peer-not-placeholder-shown:translate-x-0.5
-                        peer-not-placeholder-shown:-translate-y-1.5
-                        peer-not-placeholder-shown:text-gray-500">Tebakan Awal (x1)</label>
+                            peer-focus:scale-90
+                            peer-focus:translate-x-0.5
+                            peer-focus:-translate-y-1.5
+                            peer-focus:text-gray-500
+                            peer-not-placeholder-shown:scale-90
+                            peer-not-placeholder-shown:translate-x-0.5
+                            peer-not-placeholder-shown:-translate-y-1.5
+                            peer-not-placeholder-shown:text-gray-500">Tebakan Awal (x1)</label>
                       </div>
-                      <!-- End Floating Input -->
-                    </div>
-                    <!-- End Input Group -->
-
-                    <!-- Input Group -->
+                      </div>
                     <div class="relative col-span-full">
-                      <!-- Floating Input -->
                       <div class="relative">
-                        <input min="1" value="{{ request_form.get('tol', '')}}" type="number" name="tol" required class="peer p-3 sm:p-4 block w-full border-gray-200 rounded-lg sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
-                      focus:pt-6
-                      focus:pb-2
-                      not-placeholder-shown:pt-6
-                      not-placeholder-shown:pb-2
-                      autofill:pt-6
-                      autofill:pb-2" placeholder="********">
+                        <input min="1" value="{{ request_form.get('tol', '4')}}" type="number" name="tol" required class="peer p-3 sm:p-4 block w-full border-gray-200 rounded-lg sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
+                            focus:pt-6
+                            focus:pb-2
+                            not-placeholder-shown:pt-6
+                            not-placeholder-shown:pb-2
+                            autofill:pt-6
+                            autofill:pb-2" placeholder="********">
                         <label for="hs-hero-signup-form-floating-input-new-password" class="absolute top-0 start-0 p-3 sm:p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] peer-disabled:opacity-50 peer-disabled:pointer-events-none
-                        peer-focus:scale-90
-                        peer-focus:translate-x-0.5
-                        peer-focus:-translate-y-1.5
-                        peer-focus:text-gray-500
-                        peer-not-placeholder-shown:scale-90
-                        peer-not-placeholder-shown:translate-x-0.5
-                        peer-not-placeholder-shown:-translate-y-1.5
-                        peer-not-placeholder-shown:text-gray-500">Angka Benar</label>
+                            peer-focus:scale-90
+                            peer-focus:translate-x-0.5
+                            peer-focus:-translate-y-1.5
+                            peer-focus:text-gray-500
+                            peer-not-placeholder-shown:scale-90
+                            peer-not-placeholder-shown:translate-x-0.5
+                            peer-not-placeholder-shown:-translate-y-1.5
+                            peer-not-placeholder-shown:text-gray-500">Angka Benar</label>
                       </div>
-                      <!-- End Floating Input -->
-
-                    </div>
-                    <!-- End Input Group -->
-
-                    <!-- Input Group -->
+                      </div>
                     <div class="col-span-full">
-                      <!-- Floating Input -->
                       <div class="relative">
-                        <input min="1" value="{{ request_form.get('max_iter', '')}}" type="number" name="max_iter"
+                        <input min="1" value="{{ request_form.get('max_iter', '10')}}" type="number" name="max_iter"
                           required class="peer p-3 sm:p-4 block w-full border-gray-200 rounded-lg sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
-                      focus:pt-6
-                      focus:pb-2
-                      not-placeholder-shown:pt-6
-                      not-placeholder-shown:pb-2
-                      autofill:pt-6
-                      autofill:pb-2" placeholder="********">
+                            focus:pt-6
+                            focus:pb-2
+                            not-placeholder-shown:pt-6
+                            not-placeholder-shown:pb-2
+                            autofill:pt-6
+                            autofill:pb-2" placeholder="********">
                         <label for="hs-hero-signup-form-floating-input-current-password" class="absolute top-0 start-0 p-3 sm:p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] peer-disabled:opacity-50 peer-disabled:pointer-events-none
-                        peer-focus:scale-90
-                        peer-focus:translate-x-0.5
-                        peer-focus:-translate-y-1.5
-                        peer-focus:text-gray-500
-                        peer-not-placeholder-shown:scale-90
-                        peer-not-placeholder-shown:translate-x-0.5
-                        peer-not-placeholder-shown:-translate-y-1.5
-                        peer-not-placeholder-shown:text-gray-500">Maksimal iterasi</label>
+                            peer-focus:scale-90
+                            peer-focus:translate-x-0.5
+                            peer-focus:-translate-y-1.5
+                            peer-focus:text-gray-500
+                            peer-not-placeholder-shown:scale-90
+                            peer-not-placeholder-shown:translate-x-0.5
+                            peer-not-placeholder-shown:-translate-y-1.5
+                            peer-not-placeholder-shown:text-gray-500">Maksimal iterasi</label>
                       </div>
-                      <!-- End Floating Input -->
+                      </div>
                     </div>
-                    <!-- End Input Group -->
-                  </div>
-                  <!-- End Grid -->
-
-
-
                   <div class="mt-5">
                     <button type="submit"
                       class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Kalkulasi</button>
                   </div>
                 </div>
               </div>
-              <!-- End Card -->
-            </div>
+              </div>
           </form>
-          <!-- End Form -->
+          </div>
         </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Grid -->
-
-      <!-- Clients Section -->
       <div
         class="mt-6 md:mt-12 py-3 flex items-center text-sm text-gray-800 gap-x-1.5 after:flex-1 after:border-t after:border-gray-200 after:ms-6">
         <span
@@ -315,127 +259,83 @@
       </div>
 
     </div>
-    <!-- End Clients Section -->
-  </div>
-  <!-- End Hero -->
-
-
-
-  <!-- end -->
- 
-
-    <!-- <form method="POST" class="space-y-4">
-      <div>
-        <label class="block font-semibold">Fungsi f(x)</label>
-        <input value="{{ request_form.get('function', '') }}" type="text" name="function" required
-          class="input border rounded-md p-2 w-full" placeholder="Contoh: x**2 - 2">
-      </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div>
-          <label class="block font-semibold">Tebakan Awal x0</label>
-          <input value="{{ request_form.get('x0', '') }}" type="number" step="any" name="x0" id="x0" required
-            class="input border rounded-md p-2 w-full">
-        </div>
-        <div>
-          <label class="block font-semibold">Tebakan Awal x1</label>
-          <input value="{{ request_form.get('x1', '') }}" type="number" step="any" name="x1" id="x1" required
-            class="input border rounded-md p-2 w-full">
+    </div>
+  {% if error %}
+  <div class="flex items-center justify-center mt-4 mb-4"> <div class="bg-red-50 border-s-4 border-red-500 p-4 w-full max-w-3xl" role="alert" tabindex="-1" aria-labelledby="hs-bordered-red-style-label"> <div class="flex">
+        <div class="shrink-0">
+          <span class="inline-flex justify-center items-center size-8 rounded-full border-4 border-red-100 bg-red-200 text-red-800 ">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </span>
+          </div>
+        <div class="ms-3">
+          <h3 id="hs-bordered-red-style-label" class="text-gray-800 font-semibold ">
+            Ups!
+          </h3>
+          <p class="text-sm text-gray-700 ">
+            {{ error }}
+          </p>
         </div>
       </div>
-      <div>
-        <label class="block font-semibold">Angka Benar</label>
-        <input value="{{ request_form.get('tol', '')}}" type="number" name="tol" required
-          class="input border rounded-md p-2 w-full" min="1">
-      </div>
-      <div>
-        <label class="block font-semibold">Maksimal Iterasi</label>
-        <input value="{{ request_form.get('max_iter', '')}}" type="number" name="max_iter" required
-          class="input border rounded-md p-2 w-full" min="1">
-      </div>
-      <button type="submit"
-        class="btn bg-blue-500 text-white rounded-md p-2 w-full hover:bg-blue-600 transition">Hitung</button>
-    </form> -->
-
-    {% if error %}
-    
-  <div class="flex items-center justify-center">
-    <div class="bg-red-50 border-s-4 border-red-500 p-4 " role="alert" tabindex="-1" aria-labelledby="hs-bordered-red-style-label">
-    <div class="flex">
-      <div class="shrink-0">
-        <!-- Icon -->
-        <span class="inline-flex justify-center items-center size-8 rounded-full border-4 border-red-100 bg-red-200 text-red-800 ">
-          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </span>
-        <!-- End Icon -->
-      </div>
-      <div class="ms-3">
-        <h3 id="hs-bordered-red-style-label" class="text-gray-800 font-semibold ">
-          Ups!
-        </h3>
-        <p class="text-sm text-gray-700 ">
-          {{ error }}
-        </p>
-      </div>
     </div>
   </div>
-</div>
-  </div>
-    {% endif %}
+  {% endif %}
 
-    {% if results and results['error'] is not defined %}
-     <div class="max-w-3xl mx-auto p-6 bg-white  rounded-2xl shadow-lg mt-10 ">
-    <div class="mt-6">
-      <h2 class="text-xl font-bold mb-2">Hasil Iterasi:</h2>
-     <div class="border-gray-200 border">
-       <table class="table-auto w-full text-left border border-gray-300 min-w-full divide-y divide-gray-200">
-        <thead>
-          <tr>
-            <th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Iterasi</th>
-            <th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">x</th>
-            <th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">f(x)</th>
-            <th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Error</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for r in results %}
-          <tr class="divide-y divide-gray-200">
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ r.iter }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ '%.9f'|format(r.x) }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ '%.9f'|format(r.f_x) }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ '%.9f'|format(r.error) }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-     </div>
-    </div>
-
-    <!-- Area untuk Grafik -->
-    <div class="mt-6">
-      <h2 class="text-xl font-bold mb-2">Grafik Hasil Iterasi:</h2>
-      <canvas id="resultChart" width="400" height="200"></canvas>
-    </div>
+  {% if results and (not error) %} {# Ensure results exist and no overriding error message #}
+    {# Get the display precision from the form data passed back #}
+    {% set display_precision = request_form.get('tol')|int %}
+    <div class="max-w-3xl mx-auto p-6 bg-white rounded-2xl shadow-lg mt-10 mb-10"> {# Added margin bottom #}
+      <div class="mt-6">
+        <h2 class="text-xl font-bold mb-2">Hasil Iterasi:</h2>
+        <div class="border-gray-200 border overflow-x-auto"> {# Added overflow-x-auto for smaller screens #}
+          <table class="table-auto w-full text-left border border-gray-300 min-w-full divide-y divide-gray-200">
+            <thead>
+              <tr>
+                <th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Iterasi</th>
+                <th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">x</th>
+                <th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">f(x)</th>
+                <th class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Error</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for r in results %}
+              <tr class="divide-y divide-gray-200">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ r.iter }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ ('%.' ~ display_precision ~ 'f')|format(r.x) }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">{{ ('%.' ~ display_precision ~ 'f')|format(r.f_x) }}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                  {% if r.error == 'N/A' %}
+                  N/A
+                  {% else %}
+                  {{ ('%.' ~ display_precision ~ 'f')|format(r.error) }}
+                  {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
-    {% endif %}
 
+      <div class="mt-6">
+        <h2 class="text-xl font-bold mb-2">Grafik Hasil Iterasi:</h2>
+        <canvas id="resultChart" width="400" height="200"></canvas>
+      </div>
+    </div>
+  {% endif %}
 
-  <!-- Chart.js via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script> -->
-  <!-- File JS Lokal -->
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
   <script>
-    // Script untuk menggambar grafik jika ada hasil
-    const results = {{ results| tojson }};
+    const iterationsForChart = {{ iterations_chart | tojson }};
+    const xValuesForChart = {{ x_values_chart | tojson }};
+    const fxValuesForChart = {{ fx_values_chart | tojson }};
+    const errorsForChart = {{ errors_chart | tojson }}; // Data error yang sudah dipadding
 
-    if (results.length > 0) {
+    if (iterationsForChart && iterationsForChart.length > 0) {
       const ctx = document.getElementById('resultChart').getContext('2d');
-      const labels = results.map(r => `Iterasi ${r.iter}`);
-      const dataX = results.map(r => r.x);
-      const dataF = results.map(r => r.f_x);
+      const labels = iterationsForChart.map(iter => `Iterasi ${iter}`);
 
       const chart = new Chart(ctx, {
         type: 'line',
@@ -444,27 +344,84 @@
           datasets: [
             {
               label: 'Nilai x',
-              data: dataX,
+              data: xValuesForChart,
               borderColor: 'rgba(75, 192, 192, 1)',
               backgroundColor: 'rgba(75, 192, 192, 0.2)',
-              fill: true,
-              tension: 0.1
+              fill: false,
+              tension: 0.1,
+              yAxisID: 'y-axis-main' // Menggunakan sumbu Y utama
             },
             {
               label: 'f(x)',
-              data: dataF,
+              data: fxValuesForChart,
               borderColor: 'rgba(255, 99, 132, 1)',
               backgroundColor: 'rgba(255, 99, 132, 0.2)',
-              fill: true,
-              tension: 0.1
+              fill: false,
+              tension: 0.1,
+              yAxisID: 'y-axis-main' // Menggunakan sumbu Y utama
+            },
+            {
+              label: 'Error (|x_baru - x_lama|)', // Label untuk grafik konvergensi
+              data: errorsForChart, // Data error yang sudah dipadding
+              borderColor: 'rgba(255, 159, 64, 1)', // Warna oranye
+              backgroundColor: 'rgba(255, 159, 64, 0.2)',
+              fill: false,
+              tension: 0.1,
+              yAxisID: 'y-axis-error' // Menggunakan sumbu Y sekunder untuk error
             }
           ]
         },
         options: {
           responsive: true,
-          scales: {
-            y: {
-              beginAtZero: false
+          interaction: { // Pengaturan interaksi untuk tooltip
+            mode: 'index',
+            intersect: false,
+          },
+          stacked: false, // Pastikan grafik tidak ditumpuk
+          plugins: { // Pengaturan plugin seperti judul dan legenda
+            title: {
+                display: true,
+                text: 'Grafik Hasil Iterasi dan Konvergensi Error'
+            },
+            legend: {
+                position: 'top',
+            }
+          },
+          scales: { // Pengaturan sumbu
+            x: {
+                title: {
+                    display: true,
+                    text: 'Iterasi'
+                }
+            },
+            'y-axis-main': { // Sumbu Y utama untuk Nilai x dan f(x)
+              type: 'linear',
+              display: true,
+              position: 'left',
+              title: {
+                display: true,
+                text: 'Nilai x / f(x)'
+              }
+            },
+            'y-axis-error': { // Sumbu Y sekunder untuk Error
+              type: 'linear', // Bisa juga 'logarithmic' jika error sangat kecil atau bervariasi besar
+              display: true,
+              position: 'right',
+              title: {
+                display: true,
+                text: 'Error'
+              },
+              grid: {
+                drawOnChartArea: false, // Agar grid error tidak tumpang tindih dengan grid utama
+              },
+              ticks: {
+                 // Anda bisa menambahkan callback untuk format angka error jika perlu
+                 // contoh: mengonversi ke notasi ilmiah jika angkanya sangat kecil
+                // callback: function(value, index, values) {
+                //    if (value === null) return null; // Jaga null tetap null
+                //    return value.toExponential(2);
+                // }
+              }
             }
           }
         }
